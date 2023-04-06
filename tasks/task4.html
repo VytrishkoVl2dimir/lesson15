@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 4</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Розробити клас Baner
+		Поля:
+		Масив об’єктів ( графічних зображень та посилань на сайти).
+		Методи:
+		Метод випадкового вибору об’єкта (графічного зображення та посилання),
+		Метод виведення випадкового банера.
+	</p>
+	<a href=""></a>
+	<h3>Розв'язок</h3>
+	<script>
+
+		//====================================================================================================================================================
+		class Baner {
+			constructor(links) {
+				this.links = links
+			}
+			getRandomBaner() {
+				let randomIndex = Math.floor(Math.random() * this.links.length)
+				return this.links[randomIndex]
+			}
+
+			showRandomBaner() {
+				let currentBaner = this.getRandomBaner()
+				document.write(`<img src="${currentBaner.image}" alt="">`)
+				document.write(`<a href="${currentBaner.link}"> <br>Перехід на сайт</a>`)
+			}
+		}
+
+		let links = [
+			{
+				image: '/lesson15/img/image1.jpg',
+				link: 'https://bigfoto.com/asia/chengdu-historic-and-modern-day-metropolis/',
+
+			},
+			{
+				image: '/lesson15/img/image2.jpg',
+				link: 'https://bigfoto.com/category/america/canada/',
+
+			},
+			{
+				image: '/lesson15/img/image3.jpg',
+				link: 'https://bigfoto.com/europe/austria/salzburg/',
+
+			},
+			{
+				image: '/lesson15/img/image4.jpg',
+				link: 'https://bigfoto.com/category/europe/bulgaria/',
+
+			},
+		]
+		let newBaner = new Baner(links)
+		newBaner.showRandomBaner()
+		//========================================================================================================================================================
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>

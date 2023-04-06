@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 5</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Розробити клас «Керівник танців»
+		Поля:
+		Масив імен хлопців,
+		Масив імен дівчат,
+		Методи:
+		Метод випадкового вибору імені хлопця,
+		Метод випадкового вибору імені дівчини,
+		Метод виведення пари для танців,
+		Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців.
+	</p>
+	<h3>Розв'язок</h3>
+	<script>
+		//========================================================================================================================================================
+		class DanceHead {
+			constructor(nameGirls, nameBoys) {
+				this.nameGirls = nameGirls
+				this.nameBoys = nameBoys
+			}
+			getRandomNameGirls() {
+				let randomIndex = Math.floor(Math.random() * this.nameGirls.length)
+				return this.nameGirls[randomIndex]
+			}
+			getRandomNameBoys() {
+				let randomIndex = Math.floor(Math.random() * this.nameBoys.length)
+				return this.nameBoys[randomIndex]
+			}
+			showDancePair() {
+				return `${this.getRandomNameBoys()} та ${this.getRandomNameGirls()}`
+			}
+			run() {
+				setTimeout(
+					() => {
+						document.write(this.showDancePair())
+						document.write(`<br>`)
+						this.run()
+					},
+					5000
+				)
+			}
+		}
+
+		let nameGirls = ['Anna', 'Olga', 'Galina', 'Mariya', 'Oksana']
+		let nameBoys = ['Ivan', 'Anton', 'Pavlo', 'Maxim', 'Egor']
+		let head = new DanceHead(nameGirls, nameBoys)
+		head.run()
+		//========================================================================================================================================================
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>

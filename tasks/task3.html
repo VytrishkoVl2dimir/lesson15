@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 3</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Розробити клас MultChecker для перевірки таблиці множення
+		Поля:
+		Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7),
+		Кількість правильних відповідей,
+		Кількість неправильних відповідей,
+		Методи:
+		Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване),
+		Перевірка правильності вказаної відповіді,
+		render - виведення інформації про тестування на екран.
+	</p>
+	<h3>Розв'язок</h3>
+	<script>
+		class MultChecker {
+			constructor(initChecksNumber) {
+				this.checksNumber = initChecksNumber
+				this.numberCorrectAnswers = 0,
+					this.numberIncorrectAnswers = 0
+			}
+
+			// -----генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+			generationExample() {
+				let secondNumber = 1 + Math.floor(Math.random() * 10)
+				let сorrectAnswers = this.checksNumber * secondNumber
+				return { secondNumber, сorrectAnswers }
+			}
+
+			getVerificationAnswer() {
+				let example = this.generationExample()
+				const userAnswer = parseInt(prompt(`${this.checksNumber} * ${example.secondNumber} =`))
+				if (userAnswer === example.сorrectAnswers) {
+					alert('Правильно')
+					this.numberCorrectAnswers++
+				}
+				else {
+					alert('Неправильно')
+					this.numberIncorrectAnswers++
+				}
+				confirm('Продовжуємо?') ? this.getVerificationAnswer() : this.render()
+			}
+
+			render() {
+				document.write(`Кількість правильних відповідей = ${this.numberCorrectAnswers}<br>`)
+				document.write(`Кількість неправильних відповідей = ${this.numberIncorrectAnswers}<br>`)
+			}
+		}
+
+		const userCheckNumber = parseInt(prompt('Таблицю множення якого числа повторюємо?'))
+		let lesson = new MultChecker(userCheckNumber)
+		lesson.getVerificationAnswer()
+
+
+//========================================================================================================================================================
+
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>

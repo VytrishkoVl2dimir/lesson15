@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задачі 0</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція знаходження суми, а у
+		іншому – функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних значенням.
+		Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+		//========================================================================================================================================================
+		let obj1 = {
+			arr: [15, 25, 3, 40, 20, 6, 5],
+
+			getSum: function () {
+				return this.arr.reduce((prevsum, item) => prevsum + item)
+			},
+		}
+
+		let obj2 = {
+			arr: [5, 10, 13, 45, 10, 16, 25],
+
+			getProduct: function (min, max) {
+				return this.arr.reduce((prevValue, item) => (item >= min && item <= max) ? prevValue * item : prevValue, 1)
+			},
+		}
+		console.log(`Sum_obj1= ${obj1.getSum()}`)
+		console.log(`Sum_obj2_c= ${obj1.getSum.call(obj2)}`)
+		console.log(`Sum_obj2_a= ${obj1.getSum.apply(obj2)}`)
+
+		console.log(`Product_obj1_c= ${obj2.getProduct.call(obj1, 3, 20)}`)
+		console.log(`Product_obj1_a= ${obj2.getProduct.apply(obj1, [3, 20])}`)
+		console.log(`Product_obj2= ${obj2.getProduct(3, 20)}`)
+
+
+		//========================================================================================================================================================
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 2</h2>
+	<h3>Умови задач</h3>
+	<p>
+		Задача 2. Створити об’єкт «Авто».
+		Поля(властивості):
+		Марка,
+		Розмір бака,
+		Кількість наявних літрів,
+		Кількість місць,
+		Кількість пасажирів,
+		Методи (дії):
+		Заправка на вказану кількість літрів,
+		Виведення кількості пасажирів,
+		Додавання пасажирів,
+		Висадка пасажирів.
+
+	</p>
+	<h3>Розв'язок</h3>
+	<script>
+		//========================================================================================================================================================
+		class Auto {
+			constructor(initCarBrand, initSizeTank, initNumberAvailableLiters, initNumberSeats, initNumberPassengers) {
+				this.carBrand = initCarBrand, // Марка
+					this.sizeTank = initSizeTank, // Розмір бака
+					this.numberAvailableLiters = initNumberAvailableLiters, // Кількість наявних літрів
+					this.numberSeats = initNumberSeats, // Кількість місць
+					this.numberPassengers = initNumberPassengers // Кількість пасажирів
+			}
+			//------Заправка на вказану кількість літрів------
+			refuelingForSpecifiedNumberLiters(numberLiters) {
+				return (numberLiters <= (this.sizeTank - this.numberAvailableLiters)) ? this.numberAvailableLiters += numberLiters : 'Об"єм бака недостатній, спробуйте заправити менше'
+			}
+			//------Виведення кількості пасажирів------
+			outpuNumberPassengers() {
+				return this.numberPassengers
+			}
+			//------Додавання пасажирів------
+			addingPassengers(numAddPassengers) {
+				return (numAddPassengers <= this.numberSeats - this.numberPassengers) ? this.numberPassengers += numAddPassengers : 'Недостатньо місць'
+			}
+			//------Висадка пасажирів------
+			landingPassengers(numLandingPassengers) {
+				return (numLandingPassengers <= this.numberPassengers) ? this.numberPassengers -= numLandingPassengers : this.numberPassengers
+			}
+		}
+
+		let car = new Auto('BMW', 100, 20, 8, 4)
+		console.log(car.outpuNumberPassengers())
+		console.log(car.refuelingForSpecifiedNumberLiters(50))
+		console.log(car.addingPassengers(3))
+		console.log(car.landingPassengers(2))
+		console.log(car)
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>
